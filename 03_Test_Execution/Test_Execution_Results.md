@@ -12,41 +12,44 @@
 
 | Test ID | Test Scenario | Expected Result | Actual Result | Status |
 |---|---|---|---|---|
-| TC01 | Login with valid credentials | User should log in successfully | User logged in successfully | PASS |
-| TC02 | Login with incorrect username/password | Error message should be displayed | Error message: Username and password do not match | PASS |
-| TC03 | Login with empty username and password | Validation message should be displayed | Error message: Username is required | PASS |
-| TC04 | Login with locked-out user | Access should be denied | Not executed | PENDING |
-| TC05 | View available products | Products should be displayed | Not executed | PENDING |
-| TC06 | Sort products by price (low to high) | Products should appear in ascending price order | Not executed | PENDING |
-| TC07 | Sort products by price (high to low) | Products should appear in descending price order | Not executed | PENDING |
-| TC08 | Click Finish on checkout overview | Order confirmation should appear | Button shows hover effect but does not respond to click | FAIL – Provisional |
-| TC09 | Add product to cart | Product should be added successfully | Not executed | PENDING |
-| TC10 | Remove product from cart | Product should be removed | Not executed | PENDING |
-| TC11 | Add multiple products | All selected products should appear in cart | Not executed | PENDING |
-| TC12 | Checkout with valid details | Checkout overview should appear | Not executed | PENDING |
-| TC13 | Checkout with missing first name | Validation message should appear | Not executed | PENDING |
-| TC14 | Checkout with missing last name | Validation message should appear | Not executed | PENDING |
-| TC15 | Checkout with missing postal code | Validation message should appear | Not executed | PENDING |
-| TC16 | Complete an order | Order confirmation should appear | Not executed | PENDING |
-| TC17 | Return to products after order | Products page should appear | Not executed | PENDING |
-| TC18 | Verify cart after checkout | Cart should reflect completed order | Not executed | PENDING |
+| TC01 | Login with valid credentials | Login successful | User logged in successfully | PASS |
+| TC02 | Login with incorrect credentials | Error message displayed | Username and password do not match | PASS |
+| TC03 | Login with empty fields | Validation message displayed | Username is required | PASS |
+| TC04 | Login with locked-out user | Access denied | Not executed | PENDING |
+| TC05 | View available products | Products displayed correctly | Product names, prices and images visible | PASS |
+| TC06 | Sort products by price (low to high) | Ascending price order | Error: Sorting is broken! Reported to Backtrace | FAIL |
+| TC07 | Sort products by price (high to low) | Descending price order | Error: Sorting is broken! Reported to Backtrace | FAIL |
+| TC08 | Click Finish on checkout overview | Order confirmation displayed | Button shows hover effect but does not respond | FAIL – Provisional |
+| TC09 | Add product to cart | Product added successfully | Not executed | PENDING |
+| TC10 | Remove product from cart | Product removed successfully | Not executed | PENDING |
+| TC11 | Add multiple products | All products displayed in cart | Not executed | PENDING |
+| TC12 | Checkout with valid details | Checkout overview displayed | Not executed | PENDING |
+| TC13 | Checkout with missing first name | Validation displayed | Not executed | PENDING |
+| TC14 | Checkout with missing last name | Validation displayed | Not executed | PENDING |
+| TC15 | Checkout with missing postal code | Validation displayed | Not executed | PENDING |
+| TC16 | Complete an order | Order confirmation displayed | Not executed | PENDING |
+| TC17 | Return to products after order | Products page displayed | Not executed | PENDING |
+| TC18 | Verify cart after checkout | Cart reflects completed order | Not executed | PENDING |
 
 ## 2. Execution Summary
 
 | Result | Count |
 |---|---:|
 | Total Test Cases | 18 |
-| Passed | 3 |
-| Failed (Provisional) | 1 |
-| Pending | 14 |
+| Passed | 4 |
+| Failed | 3 (including 1 provisional) |
+| Pending | 11 |
 
 ## 3. Observations
 
-1. Login functionality works correctly with valid credentials.
-2. The application displays an appropriate error message for incorrect login credentials.
-3. The application displays a validation message when the username is empty.
-4. The Finish button appeared unresponsive during checkout testing. The issue was reproduced after refreshing the page and requires further investigation.
+1. Login works with valid credentials.
+2. Invalid login credentials produce an appropriate error message.
+3. Empty username produces a validation message.
+4. Product names, prices and images are displayed correctly.
+5. Sorting products from low to high produces a Backtrace error.
+6. Sorting products from high to low also produces a Backtrace error.
+7. The checkout Finish button appeared unresponsive during testing and requires further investigation.
 
 ## 4. Conclusion
 
-Initial manual testing of the SauceDemo application was performed successfully for three login scenarios. One potential checkout issue was observed and documented. The remaining test cases will be executed to evaluate the application's functionality further.
+Manual functional testing identified successful login and product display functionality. Two sorting failures were observed, and one potential checkout issue was reproduced. Remaining test cases are pending execution.
