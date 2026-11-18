@@ -1,17 +1,19 @@
+
 # Defect BUG02 – Finish Button Not Responding
 
-**Status:** Fail – Reproduced
+**Status:** Needs Verification – Not a Confirmed Defect
 
 | Field | Value |
 |---|---|
 | Defect ID | BUG02 |
 | Module | Checkout |
 | Test Case | TC08 |
-| Severity | Major (provisional) |
-| Priority | High (provisional) |
+| Severity | Major (Provisional) |
+| Priority | High (Provisional) |
 | Expected Result | Clicking Finish should complete the order |
-| Actual Result | Only hover effect appears; no action occurs |
-| Reproducibility | Reproduced after refreshing and repeating checkout |
+| Initial Actual Result | Only hover effect appeared; no action occurred |
+| Reproducibility | Initially observed after refreshing and repeating checkout |
+| Retest Result | Checkout completed successfully during a subsequent test |
 
 ## Steps to Reproduce
 1. Login to SauceDemo.
@@ -21,11 +23,21 @@
 5. Click Continue.
 6. Click Finish.
 
-## Observed Result
-The Finish button displays a hover effect but does not respond to clicking. The order confirmation page does not appear.
+## Initial Observed Result
+During the initial test, the Finish button displayed a hover effect but did not respond to clicking. The order confirmation page did not appear.
+
+## Retest Observation
+During a subsequent test, the Finish button worked successfully and the application displayed:
+
+"Thank you for your order!"
 
 ## Evidence
-Screenshot: Add screenshot here.
+- Initial observation: Screenshot to be added if available.
+- Retest: Screenshot of successful order confirmation, if available.
 
 ## Conclusion
-The checkout Finish button appears to be unresponsive during testing. Further investigation is required to identify the cause.
+The Finish button appeared unresponsive during the initial testing attempt. However, the issue could not be reproduced during subsequent testing because the checkout completed successfully.
+
+Further testing is required to determine whether this was a temporary issue or an application defect.
+
+**Final Classification:** Needs Verification. Not counted as a confirmed defect.
