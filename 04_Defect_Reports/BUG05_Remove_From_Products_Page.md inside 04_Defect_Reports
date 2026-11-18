@@ -1,0 +1,29 @@
+# BUG05 – Remove Button Not Responding on Products Page
+
+- **Defect ID:** BUG05
+- **Module:** Shopping Cart
+- **Test Case:** TC19
+- **Severity:** Major (provisional)
+- **Priority:** Medium (provisional)
+- **Status:** Failed – Reproduced
+
+## Steps to Reproduce
+1. Login to SauceDemo.
+2. Open the Products page.
+3. Click Add to cart for any product.
+4. Verify that the button changes to Remove.
+5. Click the Remove button on the Products page.
+
+## Expected Result
+The product should be removed from the cart and the cart count should decrease.
+
+## Actual Result
+The Remove button displays a hover effect, but clicking it does not remove the product. The product remains in the cart.
+
+## Additional Observation
+Removing products from the shopping cart page works correctly.
+
+## Conclusion
+The Remove functionality on the Products page appears unresponsive during testing, while removal from the cart page works.
+
+Further investigation is required to identify the cause.
