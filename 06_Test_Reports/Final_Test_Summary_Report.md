@@ -43,14 +43,14 @@ A total of 21 test cases were designed and evaluated.
 | Failed | 4 |
 | Needs Verification | 2 |
 | Pending | 1 |
-| Total | 21 |
+| **Total** | **21** |
 
 ### Major Findings
 
 1. Price sorting in ascending order displayed a Backtrace error.
 2. Price sorting in descending order displayed a Backtrace error.
 3. Checkout continued even when the Last Name field was empty.
-4. Remove button on the Products page appeared unresponsive.
+4. Remove button on the Products page appeared unresponsive during testing and requires further verification.
 
 ### Observations Requiring Verification
 
@@ -94,10 +94,10 @@ The manual testing process identified the following issues:
 | Defect ID | Description | Status |
 |---|---|---|
 | BUG02 | Finish button appeared unresponsive initially | Needs Verification |
-| BUG03 | Price sorting low to high | Observed |
-| BUG04 | Price sorting high to low | Observed |
-| BUG05 | Remove button issue on Products page | Provisional |
-| BUG06 | Last Name validation missing | Observed |
+| BUG03 | Price sorting low to high | Observed – Failed |
+| BUG04 | Price sorting high to low | Observed – Failed |
+| BUG05 | Remove button issue on Products page | Provisional – Needs Further Verification |
+| BUG06 | Last Name validation missing | Observed – Failed |
 
 **Note:** Postal code format testing is an additional requirement-based finding and is not classified as a confirmed application defect.
 
