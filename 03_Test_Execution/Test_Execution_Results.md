@@ -16,7 +16,7 @@
 | TC01 | Login with valid credentials | Login successful | User logged in successfully | PASS |
 | TC02 | Login with incorrect credentials | Error displayed | Username and password do not match | PASS |
 | TC03 | Login with empty fields | Validation displayed | Username is required | PASS |
-| TC04 | Login with locked-out user | Access denied | Not executed separately | PENDING |
+| TC04 | Login with locked-out user | Access denied | Not executed separately; covered by TC20 | PENDING |
 | TC05 | View available products | Products displayed | Names, prices and images visible | PASS |
 | TC06 | Sort price low to high | Ascending order | Sorting broken – Backtrace error | FAIL |
 | TC07 | Sort price high to low | Descending order | Sorting broken – Backtrace error | FAIL |
@@ -33,30 +33,30 @@
 | TC18 | Verify cart after checkout | Cart empty | Cart was empty | PASS |
 | TC19 | Remove from products page | Product removed | Hover effect appears; click does nothing | FAIL – Provisional |
 | TC20 | Login using locked-out user | Access denied | Epic sadface: Sorry, this user has been locked out. | PASS |
-| TC21 | Validate postal code length | Accept 6 digits; reject other formats under additional requirement | 5, 6, 7 digits and ABC123 all accepted | FAIL – Requirement-based |
+| TC21 | Validate postal code format | Accept 6 digits; reject other formats under additional requirement | 5, 6, 7 digits and ABC123 all accepted | NEEDS VERIFICATION |
 
 ## 2. Postal Code Boundary Test Details
 
 Additional test expectation: Indian six-digit PIN code format.
 
-| Input | Expected Result | Actual Result | Status |
+| Input | Expected Result | Actual Result | Observation |
 |---|---|---|---|
-| 56001 | Reject | Accepted | FAIL |
+| 56001 | Reject | Accepted | Requirement-based discrepancy |
 | 560001 | Accept | Accepted | PASS |
-| 5600012 | Reject | Accepted | FAIL |
-| ABC123 | Reject | Accepted | FAIL |
+| 5600012 | Reject | Accepted | Requirement-based discrepancy |
+| ABC123 | Reject | Accepted | Requirement-based discrepancy |
 
-**Note:** This is a requirement-based finding. SauceDemo does not necessarily specify Indian PIN code validation as a built-in requirement.
+**Note:** This is an additional requirement-based test. SauceDemo does not necessarily specify Indian PIN code validation as a built-in requirement. Therefore, these observations are not counted as confirmed application defects.
 
 ## 3. Execution Summary
 
 | Result | Count |
 |---|---:|
 | Passed | 14 |
-| Failed | 5 |
-| Needs Verification | 1 |
+| Failed | 4 |
+| Needs Verification | 2 |
 | Pending | 1 |
-| Total | 21 |
+| **Total** | **21** |
 
 ## 4. Observations
 
@@ -75,16 +75,19 @@ Additional test expectation: Indian six-digit PIN code format.
 13. Standard user checkout and order completion work.
 14. Back Home navigation works correctly.
 15. Cart is empty after successful checkout.
-16. Postal code accepts 5-digit, 6-digit, 7-digit and alphanumeric values.
+16. The Finish button worked during subsequent testing after initially appearing unresponsive.
+17. Postal code accepts 5-digit, 6-digit, 7-digit and alphanumeric values.
 
 ## 5. Conclusion
 
 Manual functional testing was performed on the SauceDemo application using 21 test cases.
 
-A total of 14 test cases passed, 5 failed, 1 requires further verification and 1 remains pending.
+A total of 14 test cases passed, 4 failed, 2 require further verification and 1 remains pending.
 
-The main issues observed involved product sorting, last name validation and product removal from the Products page. An additional postal code format test identified a difference against the user-defined six-digit PIN requirement.
+The main issues observed involved product sorting, last name validation and product removal from the Products page.
 
-The Finish button issue could not be reproduced during subsequent testing, and therefore is not classified as a confirmed defect.
+The Finish button issue could not be reproduced during subsequent testing and is therefore not classified as a confirmed defect.
+
+The postal code format test identified differences against the additional six-digit Indian PIN code requirement. These observations are documented separately and are not counted as confirmed application defects.
 
 The testing process provided practical experience in test planning, test case design, test execution, boundary value analysis and defect reporting.
