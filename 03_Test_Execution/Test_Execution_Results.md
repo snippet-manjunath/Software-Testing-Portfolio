@@ -1,3 +1,4 @@
+
 # Test Execution Results
 
 ## Project Information
@@ -32,9 +33,11 @@
 | TC18 | Verify cart after checkout | Cart empty | Cart was empty | PASS |
 | TC19 | Remove from products page | Product removed | Hover effect appears; click does nothing | FAIL – Provisional |
 | TC20 | Login using locked-out user | Access denied | Epic sadface: Sorry, this user has been locked out. | PASS |
-| TC21 | Validate postal code length | Accept 6 digits; reject other formats under the additional requirement | 5, 6, 7 digits and ABC123 all accepted | FAIL – Requirement-based |
+| TC21 | Validate postal code length | Accept 6 digits; reject other formats under additional requirement | 5, 6, 7 digits and ABC123 all accepted | FAIL – Requirement-based |
 
 ## 2. Postal Code Boundary Test Details
+
+Additional test expectation: Indian six-digit PIN code format.
 
 | Input | Expected Result | Actual Result | Status |
 |---|---|---|---|
@@ -43,12 +46,14 @@
 | 5600012 | Reject | Accepted | FAIL |
 | ABC123 | Reject | Accepted | FAIL |
 
+**Note:** This is a requirement-based finding. SauceDemo does not necessarily specify Indian PIN code validation as a built-in requirement.
+
 ## 3. Execution Summary
 
 | Result | Count |
 |---|---:|
-| Passed | 13 |
-| Failed | 6 |
+| Passed | 14 |
+| Failed | 5 |
 | Needs Verification | 1 |
 | Pending | 1 |
 | Total | 21 |
@@ -58,7 +63,7 @@
 1. Login works correctly with valid credentials.
 2. Invalid credentials display an appropriate error message.
 3. Empty username produces a validation message.
-4. Locked-out user is correctly prevented from logging in.
+4. Locked-out user is correctly prevented from logging in (TC20).
 5. Product names, prices and images are displayed correctly.
 6. Both price sorting options display a Backtrace error.
 7. Adding products to the cart works.
@@ -74,4 +79,12 @@
 
 ## 5. Conclusion
 
-Manual functional testing was performed on SauceDemo. Login, product display, cart operations and standard checkout were successfully tested. Potential issues were observed in product sorting, last name validation, product removal and postal code format validation under the additional six-digit requirement. Further verification is required for the Finish button observation.
+Manual functional testing was performed on the SauceDemo application using 21 test cases.
+
+A total of 14 test cases passed, 5 failed, 1 requires further verification and 1 remains pending.
+
+The main issues observed involved product sorting, last name validation and product removal from the Products page. An additional postal code format test identified a difference against the user-defined six-digit PIN requirement.
+
+The Finish button issue could not be reproduced during subsequent testing, and therefore is not classified as a confirmed defect.
+
+The testing process provided practical experience in test planning, test case design, test execution, boundary value analysis and defect reporting.
