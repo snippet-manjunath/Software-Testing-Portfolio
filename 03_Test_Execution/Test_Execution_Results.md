@@ -15,11 +15,11 @@
 | TC01 | Login with valid credentials | Login successful | User logged in successfully | PASS |
 | TC02 | Login with incorrect credentials | Error displayed | Username and password do not match | PASS |
 | TC03 | Login with empty fields | Validation displayed | Username is required | PASS |
-| TC04 | Login with locked-out user | Access denied | Not executed | PENDING |
+| TC04 | Login with locked-out user | Access denied | Not executed separately | PENDING |
 | TC05 | View available products | Products displayed | Names, prices and images visible | PASS |
 | TC06 | Sort price low to high | Ascending order | Sorting broken – Backtrace error | FAIL |
 | TC07 | Sort price high to low | Descending order | Sorting broken – Backtrace error | FAIL |
-| TC08 | Click Finish | Order confirmation displayed | Initially appeared unresponsive; later successful order completed | NEEDS VERIFICATION |
+| TC08 | Click Finish | Order confirmation displayed | Initially appeared unresponsive; later order completed successfully | NEEDS VERIFICATION |
 | TC09 | Add product to cart | Product added | Product added successfully | PASS |
 | TC10 | Remove product from cart page | Product removed | Product removed successfully | PASS |
 | TC11 | Add multiple products | All products visible | Two products added and visible | PASS |
@@ -31,37 +31,47 @@
 | TC17 | Return to products | Products page displayed | Back Home worked correctly | PASS |
 | TC18 | Verify cart after checkout | Cart empty | Cart was empty | PASS |
 | TC19 | Remove from products page | Product removed | Hover effect appears; click does nothing | FAIL – Provisional |
-| TC20 | Locked-out user | Access denied | Not executed | PENDING |
-| TC21 | Validate postal code length | Six-digit PIN accepted, if required | Accepts varying lengths; detailed boundary tests pending | NEEDS VERIFICATION |
+| TC20 | Login using locked-out user | Access denied | Epic sadface: Sorry, this user has been locked out. | PASS |
+| TC21 | Validate postal code length | Accept 6 digits; reject other formats under the additional requirement | 5, 6, 7 digits and ABC123 all accepted | FAIL – Requirement-based |
 
-## 2. Execution Summary
+## 2. Postal Code Boundary Test Details
+
+| Input | Expected Result | Actual Result | Status |
+|---|---|---|---|
+| 56001 | Reject | Accepted | FAIL |
+| 560001 | Accept | Accepted | PASS |
+| 5600012 | Reject | Accepted | FAIL |
+| ABC123 | Reject | Accepted | FAIL |
+
+## 3. Execution Summary
 
 | Result | Count |
 |---|---:|
-| Passed | 12 |
-| Failed | 4 |
-| Needs Verification | 2 |
-| Pending | 2 |
-| Total | 20 + 1 additional test |
+| Passed | 13 |
+| Failed | 6 |
+| Needs Verification | 1 |
+| Pending | 1 |
+| Total | 21 |
 
-## 3. Observations
+## 4. Observations
 
 1. Login works correctly with valid credentials.
-2. Invalid credentials display an error message.
-3. Empty username displays a validation message.
-4. Product names, prices and images are visible.
-5. Both price sorting options display a Backtrace error.
-6. Adding products to the cart works.
-7. Removing products from the cart page works.
-8. Removing products from the Products page appears unresponsive.
-9. First Name validation works correctly.
-10. Last Name validation appears to be missing.
-11. Postal Code validation works when the field is empty.
-12. Standard user checkout and order completion work.
-13. Back Home navigation works correctly.
-14. Cart is empty after successful checkout.
-15. Postal code length validation requires further investigation.
+2. Invalid credentials display an appropriate error message.
+3. Empty username produces a validation message.
+4. Locked-out user is correctly prevented from logging in.
+5. Product names, prices and images are displayed correctly.
+6. Both price sorting options display a Backtrace error.
+7. Adding products to the cart works.
+8. Removing products from the cart page works.
+9. Removing products directly from the Products page appears unresponsive.
+10. First Name validation works correctly.
+11. Last Name validation appears to be missing.
+12. Postal Code validation works when the field is empty.
+13. Standard user checkout and order completion work.
+14. Back Home navigation works correctly.
+15. Cart is empty after successful checkout.
+16. Postal code accepts 5-digit, 6-digit, 7-digit and alphanumeric values.
 
-## 4. Conclusion
+## 5. Conclusion
 
-Manual functional testing was performed on the SauceDemo online shopping application. Login, product display, cart operations and checkout were tested. Potential defects were observed in sorting, last name validation and product removal from the Products page. Additional verification is required for the Finish button and postal code length behaviour.
+Manual functional testing was performed on SauceDemo. Login, product display, cart operations and standard checkout were successfully tested. Potential issues were observed in product sorting, last name validation, product removal and postal code format validation under the additional six-digit requirement. Further verification is required for the Finish button observation.
